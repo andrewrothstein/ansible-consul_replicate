@@ -1,0 +1,11 @@
+---
+# vars file for consul_replicate
+
+consul_replicate_platform: '{{ consul_replicate_os }}_{{ consul_replicate_arch }}'
+consul_replicate_zip: consul-replicate_{{ consul_replicate_ver }}_{{ consul_replicate_platform }}.zip
+consul_replicate_url: '{{ consul_replicate_mirror }}/{{ consul_replicate_ver }}/{{ consul_replicate_zip }}'
+consul_replicate_checksum: '{{ consul_replicate_checksums[consul_replicate_ver][consul_replicate_platform] }}'
+
+consul_replicate_install_dir: '{{ consul_replicate_parent_install_dir }}/consul-replicate-{{ consul_replicate_ver }}'
+consul_replicate_exe: '{{ consul_replicate_install_dir }}/consul-replicate'
+consul_replicate_link: '{{ consul_replicate_parent_install_dir }}/bin/consul-replicate'
