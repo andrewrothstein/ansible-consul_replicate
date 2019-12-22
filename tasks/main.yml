@@ -54,4 +54,3 @@
     src: '{{ consul_replicate_exe }}'
     dest: '{{ consul_replicate_link }}'
     state: link
-
