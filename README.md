@@ -1,6 +1,6 @@
 andrewrothstein.consul_replicate
 =========
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-consul_replicate.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-consul_replicate)
+![Build Status](https://github.com/andrewrothstein/ansible-consul_replicate/actions/workflows/build.yml/badge.svg)
 
 Installs [consul-replicate](https://github.com/hashicorp/consul-replicate).
 
