@@ -10,7 +10,7 @@
       paths:
         - '{{ role_path }}/vars'
 - name: check for install
-  become: yes
+  become: true
   stat:
     path: '{{ consul_replicate_install_dir }}'
   changed_when: False
@@ -18,7 +18,7 @@
 - when: not consul_replicate_binary.stat.exists
   block:
     - name: download archive
-      become: yes
+      become: true
       become_user: root
       get_url:
         url: '{{ consul_replicate_url }}'
@@ -26,29 +26,29 @@
         checksum: '{{ consul_replicate_checksum }}'
         mode: 0644
     - name: mkdir
-      become: yes
+      become: true
       become_user: root
       file:
         path: '{{ consul_replicate_install_dir }}'
         mode: 0755
         state: directory
     - name: unarchive
-      become: yes
+      become: true
       become_user: root
       unarchive:
-        remote_src: yes
+        remote_src: true
         src: /tmp/{{ consul_replicate_zip }}
         dest: '{{ consul_replicate_install_dir }}'
         creates: '{{ consul_replicate_exe }}'
   always:
     - name: cleanup
-      become: yes
+      become: true
       become_user: root
       file:
         path: /tmp/{{ consul_replicate_zip }}
         state: absent
 - name: link
-  become: yes
+  become: true
   become_user: root
   file:
     src: '{{ consul_replicate_exe }}'
